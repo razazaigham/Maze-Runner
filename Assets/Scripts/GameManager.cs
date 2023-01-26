@@ -10,10 +10,7 @@ public class GameManager : MonoBehaviour
     public bool KeyCollected = false;
     public Toggle KeyToggle;
 
-    private void Awake()
-    {
-        GM = this;
-    }
+    private void Awake() => GM = this;
 
     private void Update()
     {
