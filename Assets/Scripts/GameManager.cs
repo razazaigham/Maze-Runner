@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     public bool KeyCollected = false;
     public Toggle KeyToggle;
 
+    public Text DiamondsText;
+    public int DiamondsCollected = 0;
+
     private void Awake() => GM = this;
 
     private void Update()
@@ -18,5 +21,7 @@ public class GameManager : MonoBehaviour
         {
             KeyToggle.isOn = true;
         }
+
+        DiamondsText.text = ": " + DiamondsCollected;
     }
 }
