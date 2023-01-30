@@ -8,6 +8,7 @@ TagManager:
   - Coin
   - CinemachineTarget
   - Diamonds
+  - MainCanvas
   layers:
   - Default
   - TransparentFX

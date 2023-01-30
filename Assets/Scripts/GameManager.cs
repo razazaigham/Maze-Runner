@@ -12,8 +12,12 @@ public class GameManager : MonoBehaviour
 
     public Text DiamondsText;
     public int DiamondsCollected = 0;
+    public GameObject interactUI;
+
+    public PlayerManager player;
 
     private void Awake() => GM = this;
+
 
     private void Update()
     {
@@ -23,5 +27,10 @@ public class GameManager : MonoBehaviour
         }
 
         DiamondsText.text = ": " + DiamondsCollected;
+    }
+
+    public void OpenChess()
+    {
+        player.CurrentChest.ClickButton();
     }
 }

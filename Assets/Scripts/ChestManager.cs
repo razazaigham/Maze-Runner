@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChestManager : MonoBehaviour
 {
     public bool opened = false;
-    public GameObject interactUI;
+    
 
     public GameObject[] diamonds;
  
@@ -13,14 +13,17 @@ public class ChestManager : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && !opened)
         {
-            interactUI.SetActive(true);
+            GameManager.GM.interactUI.SetActive(true);
+            other.GetComponent<PlayerManager>().CurrentChest = this;
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            interactUI.SetActive(false);
+
+            GameManager.GM.interactUI.SetActive(false);
+            other.GetComponent<PlayerManager>().CurrentChest = null;
         }
     }
 
@@ -28,7 +31,7 @@ public class ChestManager : MonoBehaviour
     {
         GetComponent<Animator>().SetTrigger("Open");
         opened= true;
-        interactUI.SetActive(false);
+        GameManager.GM.interactUI.SetActive(false);
     }
 
     public void InstantiateDiamonds()
