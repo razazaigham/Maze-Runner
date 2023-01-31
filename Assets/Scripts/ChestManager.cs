@@ -8,7 +8,11 @@ public class ChestManager : MonoBehaviour
     
 
     public GameObject[] diamonds;
- 
+
+    public AudioClip OpenChestSound;
+
+    public AudioSource audio;
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player" && !opened)
@@ -30,8 +34,10 @@ public class ChestManager : MonoBehaviour
     public void ClickButton()
     {
         GetComponent<Animator>().SetTrigger("Open");
-        opened= true;
+        audio.PlayOneShot(OpenChestSound);
+        opened = true;
         GameManager.GM.interactUI.SetActive(false);
+
     }
 
     public void InstantiateDiamonds()
