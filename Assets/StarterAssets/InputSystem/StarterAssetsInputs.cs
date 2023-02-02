@@ -8,10 +8,13 @@ namespace StarterAssets
 	public class StarterAssetsInputs : MonoBehaviour
 	{
 		[Header("Character Input Values")]
-		public Vector2 move;
-		public Vector2 look;
-		public bool jump;
-		public bool sprint;
+		public Vector2 Move;
+		public Vector2 Look;
+		public bool Jump;
+		public bool Sprint;
+		public bool Throw;
+		public bool Torch;
+		public bool Open;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -43,30 +46,62 @@ namespace StarterAssets
 		{
 			SprintInput(value.isPressed);
 		}
+        public void OnThrow(InputValue value)
+        {
+
+            ThrowInput(value.isPressed);
+        }
+        public void OnTorch(InputValue value)
+        {
+
+            TorchInput(value.isPressed);
+        }
+
+        public void OnOpen(InputValue value)
+        {
+
+            OpenInput(value.isPressed);
+        }
 #endif
 
 
-		public void MoveInput(Vector2 newMoveDirection)
+        public void MoveInput(Vector2 newMoveDirection)
 		{
-			move = newMoveDirection;
+			Move = newMoveDirection;
 		} 
 
 		public void LookInput(Vector2 newLookDirection)
 		{
-			look = newLookDirection;
+			Look = newLookDirection;
 		}
 
 		public void JumpInput(bool newJumpState)
 		{
-			jump = newJumpState;
+			
+			Jump = newJumpState;
 		}
 
 		public void SprintInput(bool newSprintState)
 		{
-			sprint = newSprintState;
+			Sprint = newSprintState;
 		}
 
-		private void OnApplicationFocus(bool hasFocus)
+        public void ThrowInput(bool newThrowState)
+        {
+            Throw = newThrowState;
+        }
+
+        public void TorchInput(bool newTorchState)
+        {
+            Torch = newTorchState;
+        }
+
+        public void OpenInput(bool newOpenState)
+        {
+            Open = newOpenState;
+        }
+
+        private void OnApplicationFocus(bool hasFocus)
 		{
 			SetCursorState(cursorLocked);
 		}

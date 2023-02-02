@@ -7,6 +7,8 @@ TagManager:
   - Floor
   - Coin
   - CinemachineTarget
+  - Diamonds
+  - MainCanvas
   layers:
   - Default
   - TransparentFX

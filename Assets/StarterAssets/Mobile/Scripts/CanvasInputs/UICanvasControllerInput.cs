@@ -6,28 +6,47 @@ namespace StarterAssets
     {
 
         [Header("Output")]
-        public StarterAssetsInputs starterAssetsInputs;
+        public StarterAssetsInputs starterInputs;
+
+        [SerializeField]
+        public GameObject OpenButton;
 
         public void VirtualMoveInput(Vector2 virtualMoveDirection)
         {
-            starterAssetsInputs.MoveInput(virtualMoveDirection);
+            starterInputs.MoveInput(virtualMoveDirection);
         }
 
         public void VirtualLookInput(Vector2 virtualLookDirection)
         {
-            starterAssetsInputs.LookInput(virtualLookDirection);
+            starterInputs.LookInput(virtualLookDirection);
         }
 
         public void VirtualJumpInput(bool virtualJumpState)
         {
-            starterAssetsInputs.JumpInput(virtualJumpState);
+            starterInputs.JumpInput(virtualJumpState);
         }
 
         public void VirtualSprintInput(bool virtualSprintState)
         {
-            starterAssetsInputs.SprintInput(virtualSprintState);
+           
+            starterInputs.SprintInput(virtualSprintState);
         }
-        
+
+        public void VirtualThrowInput(bool virtualThrowState)
+        {
+            starterInputs.ThrowInput(virtualThrowState);
+        }
+
+        public void VirtualTorchInput(bool virtualTorchState)
+        {
+            starterInputs.TorchInput(virtualTorchState);
+        }
+
+        public void VirtualOpenInput(bool virtualOpenState)
+        {
+            starterInputs.OpenInput(virtualOpenState);
+        }
+
     }
 
 }
